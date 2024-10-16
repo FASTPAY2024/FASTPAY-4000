@@ -1,5 +1,5 @@
 function copyAmount() {
-    const amount = '₹ 5500';
+    const amount = '₹ 4000';
     navigator.clipboard.writeText(amount).then(() => {
         showPopup('copyModal', 'Amount copied to clipboard!');
     }).catch(err => {
@@ -8,7 +8,7 @@ function copyAmount() {
 }
 
 function copyUPI() {
-    const upi = 'ranjitrudrapaul69@okicici';
+    const upi = 'unicashofficial02@okhdfcbank';
     navigator.clipboard.writeText(upi).then(() => {
         showPopup('copyModal', 'UPI copied to clipboard!');
     }).catch(err => {
@@ -38,7 +38,9 @@ document.getElementById('confirmButton').onclick = function() {
         alert('Please enter a UTR number before submitting.');
     }
 };
-
+function myFunction (radio) {
+  var x = document.getElementById("rdaacls").value;
+}
 // Close modal when clicking outside
 window.onclick = function(event) {
     if (event.target == document.getElementById('copyModal')) {
