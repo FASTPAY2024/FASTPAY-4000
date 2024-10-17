@@ -8,7 +8,7 @@ function copyAmount() {
 }
 
 function copyUPI() {
-    const upi = 'unicashofficial02@okhdfcbank';
+    const upi = 'shipanshil75-4@okhdfcbank';
     navigator.clipboard.writeText(upi).then(() => {
         showPopup('copyModal', 'UPI copied to clipboard!');
     }).catch(err => {
