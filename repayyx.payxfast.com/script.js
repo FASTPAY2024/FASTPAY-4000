@@ -1,43 +1,82 @@
-function showNotification(message, isError = false) {
-  const notification = document.getElementById("notification");
-  notification.innerText = message;
-  notification.className = isError ? "notification error" : "notification";
-  notification.style.display = "block";
-  
-  setTimeout(() => {
-    notification.style.display = "none";
-  }, 3000);
+// Function to animate buttons (using CSS transitions)
+function animateButton(button) {
+  button.classList.add('button-animate');
 }
 
-function van-button__content{
-  const tempInput = document.createElement("input");
-  document.body.appendChild(tempInput);
-  tempInput.value = text;
-  tempInput.select();
-  document.execCommand("copy");
-  document.body.removeChild(tempInput);
-  showNotification("Copied: " + text);
-}
+// Select all copy buttons
+const copyButtons = document.querySelectorAll('.van-button__text');
+copyButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    animateButton(event.target);
 
-function submitUTR() {
-  const utr = document.getElementById("utr").value;
-  if (utr) {
-    showNotification("UTR submitted successfully: " + utr);
-  } else {
-    showNotification("Please enter a UTR number.", true);
-  }
-}
-
-function showError() {
-  showNotification("Payment failed! Please try using a bank account.", true);
-}
-// Handle Submit UTR button click
-document.getElementById("submit-utr").addEventListener("click", function() {
-    const utrNumber = document.getElementById("utr-number").value;
-    if (utrNumber) {
-        // Navigate to the success page
-        window.location.href = "success.html"; // Navigate to the success page
-    } else {
-        alert("Please enter the UTR number.");
+    // Determine which text to copy based on the button clicked
+    let textToCopy = '';
+    if (button.textContent.trim() === 'COPY') {
+      // For "Amount" and "VPA/UPI" copy buttons
+      textToCopy = button.parentElement.previousElementSibling.textContent.trim();
+    } else if (button.textContent.trim() === 'COPY UTR') {
+      // For the "Copy UTR" button (assuming it exists in your HTML)
+      textToCopy = document.getElementById('van-field-1-input').value;
     }
+
+    // Copy the text to clipboard
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        showNotification('Copied to clipboard!');
+      })
+      .catch(err => {
+        console.error('Failed to copy: ', err);
+        showNotification('Failed to copy!', 'error');
+      });
+  });
+});
+
+// Function to show a notification
+function showNotification(message, type = 'success') {
+  const notification = document.getElementById('notification');
+  notification.textContent = message;
+  notification.classList.add(type);
+  notification.style.display = 'block';
+  setTimeout(() => {
+    notification.style.display = 'none';
+    notification.classList.remove(type);
+  }, 3000); // Hide after 3 seconds
+}
+
+// Form handling and UTR validation
+const myForm = document.querySelector('.van-form');
+let submitCount = 0;
+const utrInput = document.getElementById('van-field-1-input');
+
+myForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const utr = utrInput.value;
+
+  if (submitCount >= 2) {
+    showNotification('UTR already used!', 'error');
+    return;
+  }
+
+  // Replace with your actual form submission logic
+  // ...
+
+  submitCount++;
+  utrInput.value = ''; // Clear the input
+  showNotification('UTR submitted successfully!');
+
+  // Show "UTR used" message after two submissions
+  if (submitCount >= 2) {
+    showNotification('UTR already used!', 'error');
+  }
+});
+
+// Radio button animations
+const radioButtons = document.querySelectorAll('.van-radio');
+radioButtons.forEach(radioButton => {
+  radioButton.addEventListener('click', () => {
+    // Remove animation from all radio buttons
+    radioButtons.forEach(rb => rb.parentElement.classList.remove('radio-animate'));
+    // Animate the clicked radio button
+    radioButton.parentElement.classList.add('radio-animate');
+  });
 });
