@@ -9,7 +9,7 @@ function showNotification(message, isError = false) {
   }, 3000);
 }
 
-function copyText(text) {
+function van-button__text{
   const tempInput = document.createElement("input");
   document.body.appendChild(tempInput);
   tempInput.value = text;
