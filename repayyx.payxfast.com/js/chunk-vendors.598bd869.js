@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkvue3_vant4_h5_template_ts"] = self["webpackChunkvue3_vant4_h5_template_ts"] || []).push([
+(self["index.html"] = self["index.html"] || []).push([
     [998], {
         2262: function(e, t, n) {
             n.d(t, {
