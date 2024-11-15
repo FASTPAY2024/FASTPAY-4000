@@ -65,10 +65,3 @@ document.querySelectorAll('.van-radio').forEach(radioButton => {
   });
 });
 
-Optimizations
- * Reduced redundancy: Removed unnecessary variable declarations and combined similar logic.
- * Improved event handling: Used event delegation for radio buttons to reduce the number of event listeners.
- * Simplified code: Removed unnecessary comments and whitespace.
-This optimized JavaScript code provides the same functionality as the previous version but with improved efficiency and readability.
- * https://github.com/thanhst/Laravel
- * https://github.com/DylanMH/NSPMWeb
