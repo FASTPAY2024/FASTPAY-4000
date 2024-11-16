@@ -1,3 +1,64 @@
+new Vue({
+  el: '#app',
+  data() {
+    return {
+      amount: 4200,
+      vpa: 'sukh4580@pnb',
+      name: 'SUKHVINDER SINGH',
+      paymentMethod: '',
+      utr: '',
+      showPopup: false,
+      submittedUTRs: [],
+    };
+  },
+  methods: {
+    copy(text) {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          this.$notify({ type: 'success', message: 'Copied to clipboard' });
+        })
+        .catch(err => {
+          console.error('Failed to copy: ', err);
+          this.$notify({ type: 'danger', message: 'Failed to copy' });
+        });
+    },
+    updatePaymentDetails() {
+      // Implement logic to send updated data to server here
+      console.log('Updated Payment Details:', {
+        amount: this.amount,
+        vpa: this.vpa,
+        name: this.name,
+      });
+    },
+    submitUTR() {
+      if (this.utr) {
+        if (this.submittedUTRs.includes(this.utr)) {
+          this.$notify({ type: 'danger', message: 'This UTR has already been used' });
+          return;
+        }
+        this.showPopup = true;
+        this.submittedUTRs.push(this.utr);
+        setTimeout(() => {
+          console.log('Submitted UTR:', this.utr);
+          window.location.href = 'success.html'; // Replace with your actual success page URL
+        }, 20000); // Redirect after 20 seconds
+      } else {
+        this.$notify({ type: 'danger', message: 'Please enter UTR number' });
+      }
+    },
+    payFailed() {
+      console.log('Payment failed');
+      this.showPopup = false;
+      this.$notify({ type: 'danger', message: 'Payment failed' });
+      setTimeout(() => {
+        window.location.href = 'bank.html'; // Replace with your actual bank page URL
+      }, 1000);
+    },
+    closePopup() {
+      this.showPopup = false;
+    }
+  }
+};
 function animateButton(button) {
   button.classList.add('button-animate');
 }
