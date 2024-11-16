@@ -1,21 +1,11 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-     <title>UPI Payment</title>
-     <link rel="stylesheet" href="css/chunk-vendors.f637c22e.css">
-     <link rel="stylesheet" type="text/css" 
-href="css/about.3da65cb6.css">
-     <script src="js/about.4d2af733.js" defer"></script>
-          <!---->
-      <link rel="stylesheet" type="text/css" 
-href="css/chunk-vendors.f637c22e.css">
-      <script src="js/chunk-vendors.598bd869.js"defer"></script>
-          <!---->
-      <link rel="stylesheet" type="text/css" 
-href="css/app.cc138f43.css">
-      <script src="js/app.202e040c.js"defer"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css">
+  <link rel="stylesheet" href="styles.css">
  </head>
  <body>
   <div id="app" data-v-app="">
@@ -42,21 +32,41 @@ href="css/app.cc138f43.css">
             </div>
           </div>
           <div>
+         <div id="app">
+    <section id="nav">
+      <div style="padding: 6px;">
+        <div style="text-align: left;">
+          <div class="van-row van-row--justify-space-between" type="flex" style="text-align: end; padding: 0.2rem;">
+            <div class="van-col van-col--6">
+              <span style="float: left; margin-top: 0.8rem;">Amount</span>
+            </div>
+            <div class="van-col van-col--13">
+              <p>
+                <span style="font-weight: bold; text-align: right; margin-top: 0.8rem;"> ₹ {{ amount }}</span>
+              </p>
+            </div>
+            <div class="van-col van-col--5">
+              <button type="button" class="van-button van-button--primary van-button--normal van-button--plain" @click="copy(amount)">
+                <div class="van-button__content">
+                  <span class="van-button__text">COPY</span>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div>
             <div class="van-row van-row--justify-space-between" type="flex" style="text-align: end; padding: 0.2rem;">
               <div class="van-col van-col--6">
                 <span style="float: left; margin-top: 0.8rem; text-align: left;">VPA/UPI</span>
               </div>
               <div class="van-col van-col--13">
                 <p>
-                  <span style="font-weight: bold; text-align: right; margin-top: 0.8rem;">sukh4580@pnb</span>
+                  <span style="font-weight: bold; text-align: right; margin-top: 0.8rem;">{{ vpa }}</span>
                 </p>
               </div>
               <div class="van-col van-col--5">
-                <button type="button" class="van-button van-button--primary van-button--normal van-button--plain">
+                <button type="button" class="van-button van-button--primary van-button--normal van-button--plain" @click="copy(vpa)">
                   <div class="van-button__content">
-                    <!---->
                     <span class="van-button__text">COPY</span>
-                    <!---->
                   </div>
                 </button>
               </div>
@@ -67,15 +77,14 @@ href="css/app.cc138f43.css">
               </div>
               <div class="van-col van-col--13">
                 <p>
-                  <span style="font-weight: bold; text-align: right; margin-top: 0.8rem;">SUKHVINDER SINGH</span>
+                  <span style="font-weight: bold; text-align: right; margin-top: 0.8rem;">{{ name }}</span>
                 </p>
               </div>
             </div>
           </div>
-          <!---->
           <div class="van-row van-row--justify-left" type="flex" style="margin-top: 0.2rem; padding: 0rem;">
             <span class="title">
-              <i class="van-badge__wrapper van-icon van-icon-down">
+              <i class="van-badge__wrapper van-icon van-icon-down"></i>
                 <!---->
                 <!---->
                 <!---->
