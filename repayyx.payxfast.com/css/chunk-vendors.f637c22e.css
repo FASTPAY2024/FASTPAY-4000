@@ -1,3 +1,133 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+#app,
+#nav a {
+  color: #2c3e50;
+}
+#nav a {
+  font-weight: 700;
+}
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+#app {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Animation for the popup */
+.fade-enter-active, 
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, 
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Animation for van-radio */
+.van-radio__icon--round {
+  transition: transform 0.2s ease; /* Add a transition for smooth animation */
+}
+
+.van-radio__icon--checked .van-radio__icon--round {
+  transform: scale(1.2); /* Scale up the icon when checked */
+}
+
+/* Styling for the payment details section */
+.van-row--justify-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure vertical alignment */
+}
+
+.van-col {
+  flex: 1; /* Allow columns to grow and shrink equally */
+  margin-right: 10px; /* Add some space between columns */
+}
+
+.van-col:last-child {
+  margin-right: 0; /* Remove margin from the last column */
+}
+
+/* Styling for the payment methods section */
+.van-radio-group {
+  margin-bottom: 20px;
+}
+
+.van-radio-group .van-row {
+  align-items: center; /* Vertically align radio button and image */
+  margin-bottom: 10px;
+}
+
+.van-image {
+  margin-left: 10px;
+}
+
+/* Styling for the UTR section */
+.van-form {
+  margin-top: 20px;
+}
+
+.van-cell__title {
+  width: 80px; /* Adjust width as needed */
+}
+
+.van-field__control {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 8px;
+}
+
+/* Styling for the footer */
+.van-row--justify-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.van-image {
+  margin: 0 5px; /* Add some space between images */
+}
+
+
 :host,
 :root {
   --van-black: #000;
