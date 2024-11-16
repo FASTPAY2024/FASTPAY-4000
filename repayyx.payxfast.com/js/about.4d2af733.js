@@ -1,6 +1,4 @@
-(self["webpackChunkvue3_vant4_h5_template_ts"] = self["webpackChunkvue3_vant4_h5_template_ts"] || []).push([
-    [443], {
-        9669: function(e, t, n) {
+ function(e, t, n) {
             e.exports = n(1609)
         },
         5448: function(e, t, n) {
